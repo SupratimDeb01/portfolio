@@ -46,9 +46,9 @@ const darkModeToggle2 = document.getElementById("darkModeToggle2");
 const body = document.body;
 
 // Check for saved dark mode preference
-if (localStorage.getItem("dark-mode") === "enabled") {
-    body.classList.add("dark-mode");
-}
+// if (localStorage.getItem("dark-mode") === "enabled") {
+//     body.classList.add("dark-mode");
+// }
 
 // // Toggle dark mode on click
 
