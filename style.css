@@ -12,6 +12,7 @@
     --white: #ffffffe8;
     --light-background: #def1f1;
     --dark-text: #272727;
+    --pop-nav: hsl(207, 89%, 83%);
 }
 
 .dark-mode {
@@ -26,6 +27,7 @@
     --border-color: #c5c4c4;
     --hover-color: #ffcc00;
     --dark-text: #999595;
+    --pop-nav: #474444;
 }
 
 .signature img{
@@ -443,7 +445,7 @@ section.footer{
     border-radius: 60px;
     min-height: 60px;
     display: flex;
-    background-color: var(--secondary-bg);
+    background-color: var(--pop-nav);
     justify-content: space-between;
     align-items: center;
     z-index: 1000;
@@ -473,7 +475,7 @@ section.footer{
     width: 90%;
     border-radius: 60px;
     min-height: 80px;
-    background-color: var(--secondary-bg);
+    background-color: var(--pop-nav);
     display: none;
     flex-direction: column;
     z-index: 1000;
