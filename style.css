@@ -113,7 +113,7 @@ nav a.active {
 section.home{
     min-height: auto;
     width: 100vw;
-    padding: 0rem 5rem 3rem 5rem;
+    padding: 0rem 10rem 3rem 10rem;
     display: flex;
     justify-content: center;
     align-items: center;
