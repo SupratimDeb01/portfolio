@@ -93,3 +93,78 @@ darkModeToggle2.addEventListener("click", (event) => {
 });
 
 
+// --------------------------------------------------------------------------------------
+/* === Projects slider (re‑ordering, no clones) ==================== */
+/* === Projects Slider === */
+/* === Projects Slider (step = 1 card) === */
+
+/* ——— grab elements ——— */
+const sliderWrapper  = document.getElementById('sliderWrapper');
+const prevBtn        = document.getElementById('prevBtn');
+const nextBtn        = document.getElementById('nextBtn');
+const dotsContainer  = document.getElementById('dotsContainer');
+
+let pageSize   = 2;   // visible cards per view (auto‑computed)
+let current    = 0;   // index of the FIRST visible card
+let totalSteps = 0;   // how many distinct starting positions
+
+/* ——— build / rebuild everything ——— */
+function refresh () {
+  pageSize   = window.innerWidth < 640 ? 1 : 2;              // phones ⇒ 1
+  const cards = sliderWrapper.querySelectorAll('.card');
+  totalSteps  = Math.max(1, cards.length - pageSize + 1);    // move by ONE
+
+  /* force correct width so exactly pageSize cards fill 100 % */
+  cards.forEach(c => c.style.flex = `0 0 ${100 / pageSize}%`);
+
+  /* rebuild dots (one per step) */
+  dotsContainer.innerHTML = '';
+  for (let i = 0; i < totalSteps; i++) {
+    const dot = document.createElement('button');
+    if (i === current) dot.classList.add('active');
+    dot.addEventListener('click', () => goTo(i));
+    dotsContainer.appendChild(dot);
+  }
+
+  /* clamp current if resize removed steps */
+  if (current >= totalSteps) current = totalSteps - 1;
+
+  translate();
+}
+
+/* ——— helpers ——— */
+function translate () {
+  /* each card is 100/pageSize % wide, so shift that much per step */
+  const offset = current * (100 / pageSize);
+  sliderWrapper.style.transform = `translateX(-${offset}%)`;
+  updateDots();
+  updateArrows();
+}
+
+function updateDots () {
+  [...dotsContainer.children].forEach((d, i) =>
+    d.classList.toggle('active', i === current)
+  );
+}
+
+function updateArrows () {
+  const hasPrev = current > 0;
+  const hasNext = current < totalSteps - 1;
+  prevBtn.style.display = hasPrev ? 'block' : 'none';
+  nextBtn.style.display = hasNext ? 'block' : 'none';
+}
+
+function goTo (step) {
+  current = Math.max(0, Math.min(step, totalSteps - 1));
+  translate();
+}
+
+/* ——— nav buttons ——— */
+prevBtn.addEventListener('click', () => goTo(current - 1));
+nextBtn.addEventListener('click', () => goTo(current + 1));
+
+/* ——— re‑calculate on resize ——— */
+window.addEventListener('resize', refresh);
+
+/* ——— first run ——— */
+refresh();
