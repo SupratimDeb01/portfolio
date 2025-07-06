@@ -272,11 +272,14 @@ section.skills{
     }
 }
 @keyframes words{
-    0%, 50%{
-        content: "Web Developer";
+    0%, 33%{
+        content: "Frontend Developer";
     }
-    56%, 100%{
-        content: "UI/UX Designer";
+    34%, 67%{
+        content: "UI Designer";
+    }
+    68%, 100%{
+        content: "MERN Developer";
     }
 }
 
