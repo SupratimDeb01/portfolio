@@ -64,6 +64,9 @@
 .cont-top h5{
   font-size: 1.3rem;
 }
+.educationcertification{
+  align-items: center;
+}
 }
 
 @media (max-width: 768px) {
@@ -157,6 +160,9 @@
   section.home{
     flex-direction: column;
     margin-top: -1rem;
+  }
+  .home-content p{
+    padding-right: 0;
   }
   .home-img{
     width: 220px;
