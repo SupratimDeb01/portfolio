@@ -18,7 +18,7 @@
 .dark-mode {
     --primary-bg: #1e1e1e;
     --white: #ffffffea;
-    --secondary-bg: #00264b;
+    --secondary-bg: #072a8b;
     --text-color: #ffffff;
     --heading-color: #ffffff;
     --subheading-color: #bbbbbb;
@@ -142,7 +142,10 @@ hr{
     font-size: 1.5rem;
     text-align: justify;
     color: var(--subheading-color);
+    padding-right: 10rem;
+    padding-bottom: 0.75rem;
 }
+
 
 .profile {
     display: flex;
@@ -299,10 +302,114 @@ section.qualification{
 .qua-top h5{
     font-size: 1.3rem;
 }
+
+
+/* ═════ PROJECTS SECTION ═════ */
+.projects{
+  width:100vw;
+  padding:2.5rem 5rem;
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+.projects-top{
+    padding-bottom: 2rem;
+}
+.projects-top h5{
+    font-size: 1.5rem;
+}
+.projects-top h3{
+    font-size: 3rem;
+}
+/* ── slider ─────────────────── */
+.slider-container{
+  position:relative;
+  width:100%;
+  overflow:hidden;              /* hide cards that slide off‑screen */
+}
+
+.slider-wrapper h3{
+    padding-top: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.slider-wrapper{
+  display:flex;
+  transition:transform .4s ease-in-out;
+}
+
+/* each card is 50 % wide on large screens;
+   we’ll overwrite this to 100 % on phones */
+.card{
+  flex:0 0 50%;
+  padding:1rem;
+  box-sizing:border-box;
+}
+
+.card img{
+  width:100%;
+  height:auto;
+  display:block;
+  border-radius:.75rem;
+  object-fit:cover;
+}
+
+/* phones: show one card at a time */
+@media (max-width:640px){
+  .card{ flex:0 0 100%; }
+}
+
+/* ── navigation arrows ───────── */
+.slider-btn{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:var(--accent,#fff);
+  border:none;
+  font-size:2rem;
+  padding:.25rem .75rem;
+  border-radius:.5rem;
+  cursor:pointer;
+  z-index:5;                    /* keep above cards */
+}
+
+.slider-btn.left{  left:.5rem;  }
+.slider-btn.right{ right:.5rem; }
+
+/* ── dots indicator ─────────── */
+.dots{
+  margin-top:1.25rem;
+  display:flex;
+  justify-content:center;
+  gap:.5rem;
+}
+
+.dots button{
+  width:.75rem;
+  height:.75rem;
+  border-radius:50%;
+  border:none;
+  background:#ccc;
+  cursor:pointer;
+  transition:background .3s;
+}
+
+.dots button.active{ background:var(--accent,#555); }
+
+.info a{
+    text-decoration: none;
+    color:var(--text-color);
+}
+.educationcertification a{
+    text-decoration: none;
+    color:var(--text-color);
+}
 .educationcertification{
     display: flex;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
     gap: 25%;
 }
 .merge{
